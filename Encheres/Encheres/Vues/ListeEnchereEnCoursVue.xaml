@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Encheres.Vues.ListeEnchereEnCoursVue">
+
+    <StackLayout>
+        <StackLayout Orientation="Horizontal">
+
+            <Label Text="Liste des enchères en cours"
+                   Margin="8,8,8,0"
+                   FontSize="Medium"
+                   TextColor="Crimson"
+                   FontAttributes="Bold"/>
+
+            <Button HorizontalOptions="EndAndExpand"
+                   Text="Retour" 
+                    Margin="8,2,2,0"
+                   FontAttributes="Bold"
+                   FontSize="Medium"
+                   TextColor="CadetBlue"
+                    Clicked="OnClickRetourPageProfil"/>
+
+        </StackLayout>
+        <Label Text="Liste des enchères classiques :"
+                   Margin="8,8,8,0"
+                   FontSize="Medium"
+                   TextColor="CadetBlue"
+                   FontAttributes="Bold"/>
+
+        <CollectionView ItemsSource="{Binding MaListeEncheresEnCoursTypeClassique} "
+                        ItemsLayout="HorizontalList"
+                        SelectionMode="Single" 
+                        SelectionChanged="CollectionView_SelectionChanged">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+
+                    <Grid Padding="10,10,10,12" Margin="12">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="110" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Source="{Binding LeProduit.Photo}"
+                               Grid.Row="0"
+                               Aspect="AspectFill"
+                               WidthRequest="140"
+                               HeightRequest="140" />
+
+                        <StackLayout Grid.Row="1">
+
+                            <Label Grid.Column="1"
+                                   VerticalOptions="Center"
+                                   Text="{Binding LeProduit.Nom}"
+                                   FontAttributes="Bold" />
+                        </StackLayout>
+
+                    </Grid>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <StackLayout>
+            <Label Text="Liste des enchères inverses : "
+                   Margin="8,8,8,0"
+                   FontSize="Medium"
+                   TextColor="CadetBlue"
+                   FontAttributes="Bold"/>
+
+
+            <CollectionView ItemsSource="{Binding MaListeEncheresEnCoursTypeInverse}"
+                        ItemsLayout="HorizontalList"
+                        SelectionMode="Single" 
+                        SelectionChanged="CollectionView_SelectionChanged">
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+
+                        <Grid Padding="10" Margin="12">
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="110" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="90"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Source="{Binding LeProduit.Photo}"
+                               Grid.Row="0"
+                               Aspect="AspectFill"
+                               WidthRequest="140"
+                               HeightRequest="140" />
+
+                            <StackLayout Grid.Row="1">
+
+                                <Label Grid.Column="1"
+                                   VerticalOptions="Center"
+                                   Text="{Binding LeProduit.Nom}"
+                                   FontAttributes="Bold" />
+                            </StackLayout>
+
+                        </Grid>
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+        <StackLayout>
+
+            <Label Text="Liste des enchères flashs :"
+                   Margin="8,8,8,0"
+                   FontSize="Medium"
+                   TextColor="CadetBlue"
+                   FontAttributes="Bold"/>
+
+            <CollectionView ItemsSource="{Binding MaListeEncheresEnCoursTypeFlash}"
+                        ItemsLayout="HorizontalList"
+                        SelectionMode="Single" 
+                        SelectionChanged="CollectionView_SelectionChanged">
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+
+                        <Grid Padding="10" Margin="12">
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="110" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="90"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Source="{Binding LeProduit.Photo}"
+                               Grid.Row="0"
+                               Aspect="AspectFill"
+                               WidthRequest="140"
+                               HeightRequest="140" />
+
+                            <StackLayout Grid.Row="1">
+
+                                <Label Grid.Column="1"
+                                   VerticalOptions="Center"
+                                   Text="{Binding LeProduit.Nom}"
+                                   FontAttributes="Bold" />
+                            </StackLayout>
+
+                        </Grid>
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </StackLayout>
+    </StackLayout>
+    
+</ContentPage>
